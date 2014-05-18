@@ -2,7 +2,7 @@
 
 
 ## Loading and preprocessing the data
-```{r, echo=TRUE}
+```{r Loading and preprocessing the data, echo=TRUE}
 setwd("./activity")
 activity <- read.csv("activity.csv")
 dailySteps <- tapply(activity$steps, activity$date, sum)
@@ -11,7 +11,7 @@ hist(dailySteps, main="Number of Steps by Day", xlab="Steps")
 
 
 ## What is mean total number of steps taken per day?
-```{r, echo=TRUE}
+```{r What is mean total number of steps taken per day?, echo=TRUE}
 meanSteps <- mean(dailySteps, na.rm=TRUE)
 meanSteps # 10766.19
 medianSteps <- median(dailySteps, na.rm=TRUE)
@@ -19,7 +19,7 @@ medianSteps #  10765
 ```
 
 ## What is the average daily activity pattern?
-```{r, echo=TRUE}
+```{r What is the average daily activity pattern?, echo=TRUE}
 adap = tapply(activity$steps, activity$interval, mean, na.rm=TRUE)
 adap # Raw Data
 plot(adap, type="l", xlab="5 Minute Interval", ylab="Average Number of Steps (not counting NA)")   # Line Plot
@@ -30,7 +30,7 @@ as.numeric(as.character(g[g$activity==max(g$activity),2][1])) # Interval 835 has
 ```
 
 ## Imputing missing values
-```{r, echo=TRUE}
+```{r Imputing missing values, echo=TRUE}
 activityNA = is.na(activity$steps)
 sum(activityNA) # 1. 2304 missing values
 # 2. replace the NA with the mean of non NA values for that 5 minute period
@@ -50,7 +50,7 @@ median(activityImputedDaily) #4. Median steps per day: 10766.19
 ```	
 
 ## Are there differences in activity patterns between weekdays and weekends?
-```{r, echo=TRUE}
+```{r Are there differences in activity patterns between weekdays and weekends?, echo=TRUE}
 newdate <- strptime(activityImputed$date, "%m/%d/%Y")
 wdays <- weekdays(newdate)
 wend  <- ifelse(wdays == 'Saturday' | wdays == 'Sunday', 1, 0)

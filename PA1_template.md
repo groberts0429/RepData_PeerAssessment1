@@ -10,7 +10,7 @@ dailySteps <- tapply(activity$steps, activity$date, sum)
 hist(dailySteps, main = "Number of Steps by Day", xlab = "Steps")
 ```
 
-![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
+![plot of chunk Loading and preprocessing the data](figure/Loading_and_preprocessing_the_data.png) 
 
 
 
@@ -133,7 +133,7 @@ adap  # Raw Data
 plot(adap, type = "l", xlab = "5 Minute Interval", ylab = "Average Number of Steps (not counting NA)")  # Line Plot
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk What is the average daily activity pattern?](figure/What_is_the_average_daily_activity_pattern_.png) 
 
 ```r
 
@@ -177,7 +177,7 @@ hist(activityImputedDaily, main = "Number of Steps by Day with NA replaced by Im
     xlab = "Steps")  #4. 
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk Imputing missing values](figure/Imputing_missing_values.png) 
 
 ```r
 mean(activityImputedDaily)  #4. Mean steps per day:   10766.19
@@ -219,5 +219,5 @@ xyplot(steps ~ intervals | days, data = df, t = "l", xlim = c(-10, 300), ylab = 
         labels = c(0, 500, 1000, 1500, 2000))))
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk Are there differences in activity patterns between weekdays and weekends?](figure/Are_there_differences_in_activity_patterns_between_weekdays_and_weekends_.png) 
 
